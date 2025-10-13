@@ -20,7 +20,8 @@ export default {
   css: [],
 
   plugins: [
-    '~/plugins/alert.js'
+    '~/plugins/alert.js',
+    '~/plugins/menu.js'
   ],
 
   components: true,
