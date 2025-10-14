@@ -1,27 +1,41 @@
 const routes = [
   {
     title: "Inicio",
-    action: "mdi-home"
+    action: "mdi-home",
+    to: "/inicio"
   },
   {
-    title: "Usurios",
-    action: "mdi-account-group"
+    title: "Usuarios",
+    action: "mdi-account-group",
+    items: [
+      { title: "Lista de Usuarios", to: "/usuarios/lista" },
+      { title: "Nuevo Usuario", to: "/usuarios/nuevo" }
+    ]
   },
   {
     title: "Clientes",
-    action: "mdi-account-multiple"
+    action: "mdi-account-multiple",
+    items: [
+      { title: "Lista de Clientes", to: "/clientes/lista" },
+      { title: "Nuevo Cliente", to: "/clientes/nuevo" }
+    ]
   },
   {
-    title: "Provedores",
-    action: "mdi-truck"
+    title: "Proveedores",
+    action: "mdi-truck",
+    items: [
+      { title: "Lista de Proveedores", to: "/proveedores/lista" },
+      { title: "Registrar Proveedor", to: "/proveedores/nuevo" }
+    ]
   },
   {
     title: "Productos",
-    action: "mdi-cube"
-  },
-  {
-    title: "Categorias",
-    action: "mdi-tag-multiple"
+    action: "mdi-cube",
+    items: [
+      { title: "Inventario", to: "/productos/inventario" },
+      { title: "Agregar Producto", to: "/productos/agregar" },
+      { title: "Categorías", to: "/productos/categorias" }
+    ]
   },
   {
     title: "Comercios Afiliados",
@@ -29,44 +43,54 @@ const routes = [
   },
   {
     title: "Ventas",
-    action: "mdi-cart"
+    action: "mdi-cart",
+    items: [
+      { title: "Nueva Venta", to: "/ventas/nueva" },
+      { title: "Historial de Ventas", to: "/ventas/historial" }
+    ]
   },
   {
     title: "Compras",
-    action: "mdi-cart-arrow-down"
+    action: "mdi-cart-arrow-down",
+    items: [
+      { title: "Registrar Compra", to: "/compras/nueva" },
+      { title: "Historial de Compras", to: "/compras/historial" }
+    ]
   },
   {
     title: "Caja",
-    action: "mdi-cash-register"
+    action: "mdi-cash-register",
+    items: [
+      { title: "Movimientos", to: "/caja/movimientos" },
+      { title: "Apertura y Cierre", to: "/caja/apertura-cierre" }
+    ]
   },
   {
     title: "Reportes",
     action: "mdi-chart-box",
     items: [
-      {
-        title: "Ver Reportes",
-        action: "mdi-file-chart"
-      },
-      {
-        title: "Gastos",
-        action: "mdi-currency-usd"
-      },
-      {
-        title: "Reporte Financiero",
-        action: "mdi-finance"
-      }
+      { title: "Ver Reportes", to: "/reportes/ver" },
+      { title: "Gastos", to: "/reportes/gastos" },
+      { title: "Reporte Financiero", to: "/reportes/financiero" }
     ]
   },
   {
     title: "Configuraciones",
-    action: "mdi-cog"
+    action: "mdi-cog",
+    items: [
+      { title: "Parámetros del Sistema", to: "/configuracion/sistema" },
+      { title: "Datos de la Empresa", to: "/configuracion/empresa" }
+    ]
   },
   {
     title: "Roles y Permisos",
-    action: "mdi-shield-account"
+    action: "mdi-shield-account",
+    items: [
+      { title: "Roles", to: "/seguridad/roles" },
+      { title: "Permisos", to: "/seguridad/permisos" }
+    ]
   }
-
-]
+];
 
 export default ({ app }, inject) => {
   inject("menu", routes);
