@@ -2,16 +2,20 @@ const routes = [
   {
     title: "Inicio",
     action: "mdi-home",
-    to: "/inicio"
-  },
-  {
-    title: "Usuarios",
-    action: "mdi-account-group",
+    to: "/inicio",
     items: [
-      { title: "Lista de Usuarios", to: "/usuarios/lista" },
-      { title: "Nuevo Usuario", to: "/usuarios/nuevo" }
+      { title: "manejo", to: "/inicio/manejo" },
     ]
   },
+  {
+    title: "Ventas",
+    action: "mdi-cart",
+    items: [
+      { title: "Nueva Venta", to: "/ventas/nueva" },
+      { title: "Historial de Ventas", to: "/ventas/historial" }
+    ]
+  },
+
   {
     title: "Clientes",
     action: "mdi-account-multiple",
@@ -30,7 +34,7 @@ const routes = [
   },
   {
     title: "Productos",
-    action: "mdi-cube",
+    action: "mdi-clipboard-list-outline",
     items: [
       { title: "Inventario", to: "/productos/inventario" },
       { title: "Agregar Producto", to: "/productos/agregar" },
@@ -41,14 +45,7 @@ const routes = [
     title: "Comercios Afiliados",
     action: "mdi-store"
   },
-  {
-    title: "Ventas",
-    action: "mdi-cart",
-    items: [
-      { title: "Nueva Venta", to: "/ventas/nueva" },
-      { title: "Historial de Ventas", to: "/ventas/historial" }
-    ]
-  },
+
   {
     title: "Compras",
     action: "mdi-cart-arrow-down",
@@ -67,21 +64,14 @@ const routes = [
   },
   {
     title: "Reportes",
-    action: "mdi-chart-box",
+    action: "mdi-chart-line",
     items: [
       { title: "Ver Reportes", to: "/reportes/ver" },
       { title: "Gastos", to: "/reportes/gastos" },
       { title: "Reporte Financiero", to: "/reportes/financiero" }
     ]
   },
-  {
-    title: "Configuraciones",
-    action: "mdi-cog",
-    items: [
-      { title: "Parámetros del Sistema", to: "/configuracion/sistema" },
-      { title: "Datos de la Empresa", to: "/configuracion/empresa" }
-    ]
-  },
+
   {
     title: "Roles y Permisos",
     action: "mdi-shield-account",
@@ -89,7 +79,23 @@ const routes = [
       { title: "Roles", to: "/seguridad/roles" },
       { title: "Permisos", to: "/seguridad/permisos" }
     ]
-  }
+  },
+  {
+    title: "Usuarios",
+    action: "mdi-account-group",
+    items: [
+      { title: "Lista de Usuarios", to: "/usuarios/lista" },
+      { title: "Nuevo Usuario", to: "/usuarios/nuevo" }
+    ]
+  },
+  {
+    title: "Configuracion",
+    action: "mdi-hammer-wrench",
+    items: [
+      { title: "Parámetros del Sistema", to: "/configuracion/sistema" },
+      { title: "Datos de la Empresa", to: "/configuracion/empresa" }
+    ]
+  },
 ];
 
 export default ({ app }, inject) => {

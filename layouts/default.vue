@@ -1,16 +1,16 @@
 <template>
   <v-app dark>
     <v-navigation-drawer v-model="drawer" app floating class="elevation-1" :right="$vuetify.rtl" width="260"
-      style="background: #172640">
+      style="background: #004991">
       <template v-slot:prepend>
-        <div class="d-flex pa-2 justify-center" style="background: #172640">
-          <img src="/images/LogoPrincipal.jpeg" height="48" alt="logo" class="mr-1" @click="$router.push('/inicio/prin')"
-            style="cursor: pointer" />
+        <div class="d-flex pa-2 justify-center" style="background: #004991">
+          <img src="/images/logoBlanco.png" height="80" width="240px" alt="logo" class="mr-1"
+            @click="$router.push('/inicio/prin')" style="cursor: pointer" />
         </div>
         <hr />
       </template>
 
-      <v-list style="background: #172640">
+      <v-list style="background: #004991">
         <template v-for="item in items">
           <v-list-group :key="item.title" v-model="item.active" no-action append-icon="">
             <template v-slot:activator>
@@ -98,15 +98,15 @@ export default {
 }
 
 .v-navigation-drawer__content::-webkit-scrollbar-track {
-  background: #172640;
+  background: #004991;
 }
 
 .v-navigation-drawer__content::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #ffffff;
   border-radius: 4px;
 }
 
 .v-navigation-drawer__content::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #ffffff;
 }
 </style>
