@@ -14,12 +14,12 @@
         <template v-for="item in items">
           <v-list-group :key="item.title" v-model="item.active" no-action append-icon="">
             <template v-slot:activator>
-              <v-list-item-icon style="margin-right: 5px">
+              <v-list-item-icon style="margin-right: 10px">
                 <v-icon v-text="item.action" style="color: white"></v-icon>
               </v-list-item-icon>
 
               <v-list-item-content>
-                <v-list-item-title v-text="item.title" style="font-size: 13px; color: white"></v-list-item-title>
+                <v-list-item-title v-text="item.title" style="font-size: 15px; color: white"></v-list-item-title>
               </v-list-item-content>
 
               <!-- <v-icon slot="append-icon" style="color: white">
@@ -27,9 +27,8 @@
               </v-icon> -->
             </template>
 
-            <!-- Submenús -->
             <template v-for="child in item.items">
-              <v-list-item :key="child.title" :to="child.to" style="padding-left: 42px; color: white"
+              <v-list-item :key="child.title" :to="child.to" style="padding-left: 45px; color: white"
                 :class="{ 'active-child': child.to === $route.path }">
                 <v-tooltip right>
                   <template v-slot:activator="{ on, attrs }">
@@ -37,7 +36,7 @@
                       <v-icon style="color: white">mdi-star-four-points-small</v-icon>
                     </v-list-item-icon>
                     <v-list-item-content>
-                      <v-list-item-title v-text="child.title" v-on="on" style="font-size: 13px"></v-list-item-title>
+                      <v-list-item-title v-text="child.title" v-on="on" style="font-size: 15px"></v-list-item-title>
                     </v-list-item-content>
                   </template>
                   <span>{{ child.title }}</span>
@@ -57,14 +56,13 @@ export default {
   data() {
     return {
       drawer: true,
-      items: this.$menu, // Usa tu menú actual
+      items: this.$menu,
     };
   },
 };
 </script>
 
 <style scoped>
-/* Mantén los colores y estructura original */
 .v-list-item {
   transition: background-color 0.2s;
 }
