@@ -5,12 +5,12 @@
                 <v-card elevation="10" id="login">
                     <v-form ref="valLogin" v-if="!crearCuenta">
                         <div style="text-align: center">
-                            <v-icon size="100" color="primary">mdi-cart</v-icon>
+                            <img src="/images/logoNegro.png" height="90" width="260px" alt="logo" class="mr-1" />
                         </div>
+                        <h4 class="text-center"><strong> Sistema de Gestión de Logística y Ventas </strong></h4>
+                        <hr>
 
-                        <h2 class="text-center mb-4">Bienvenido</h2>
-
-                        <v-row>
+                        <v-row class="mt-2">
                             <v-col cols="12">
                                 <v-text-field dense outlined label="Usuario | Correo Electronico"
                                     prepend-inner-icon="mdi-account" v-model="formInicio.email"
@@ -26,14 +26,14 @@
                             <v-col cols="12" class="text-center">
                                 <v-btn color="primary" dark @click="loguearUsuario()">Ingresar</v-btn>
                             </v-col>
-
+                            <!-- 
                             <v-col cols="12" class="text-center">
 
                                 <h5>¿ Aun no tienes cuenta ? .. registrate en el boton de abajo</h5>
 
                                 <v-btn color="warning" dark @click="crearCuenta = true" class="mt-2">Crear
                                     cuenta</v-btn>
-                            </v-col>
+                            </v-col> -->
 
                         </v-row>
                     </v-form>
@@ -137,57 +137,10 @@ export default {
     },
 
     methods: {
-        ...mapActions("auth", ["login"]),
 
-        async loguearUsuario() {
+        loguearUsuario() {
 
-            if (!this.$refs.valLogin.validate()) {
-                return;
-            }
-
-            try {
-                await this.login(this.formInicio)
-
-                this.$router.push("/inicio/principal");
-
-                this.$refs.valLogin.resetValidation()
-            } catch (error) {
-            }
         },
-
-        async crear() {
-
-            if (!this.$refs.valCrear.validate()) {
-                return;
-            }
-
-            try {
-
-                const data = {
-                    ...this.formCrear
-                }
-
-                await this.$axios.post('auth/crear-usuario', data, {
-                    headers: { Accept: "text/html" }
-                });
-
-                this.crearCuenta = false
-
-                this.formCrear = {
-                    email: null,
-                    password: null,
-                    nombre_completo: null,
-                    apellidos: null,
-                    telefono: null,
-                    numero_documento: null
-                }
-
-                this.$refs.valCrear.resetValidation()
-
-            } catch (error) {
-            }
-        }
-
 
     }
 
@@ -197,19 +150,36 @@ export default {
 
 <style scoped>
 #background-login {
-    background-image: url("../../static/images/pagf1.png");
+    background-image: url("../../static/images/bodega1.jpeg");
     background-size: cover;
     background-position: center;
     height: 100vh;
     display: flex;
     align-items: center;
+    animation: moverFondo 30s linear infinite;
+}
+
+@keyframes moverFondo {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
 }
 
 #login {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
     padding: 30px;
-    max-width: 500px;
+    max-width: 470px;
     width: 100%;
+    border: 3px solid #004991;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 </style>

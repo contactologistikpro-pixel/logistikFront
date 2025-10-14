@@ -92,7 +92,7 @@ const routes = [
     title: "Configuracion",
     action: "mdi-hammer-wrench",
     items: [
-      { title: "Parámetros del Sistema", to: "/configuracion/sistema" },
+      { title: "Parámetros del Sistema", to: "/configuracion/general" },
       { title: "Datos de la Empresa", to: "/configuracion/empresa" }
     ]
   },

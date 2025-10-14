@@ -1,5 +1,12 @@
 <template>
   <v-app dark>
+    <v-app-bar app color="#004991" dark dense flat>
+      <v-toolbar-title style="font-weight: bold; letter-spacing: 1px;">
+
+      </v-toolbar-title>
+
+    </v-app-bar>
+
     <v-navigation-drawer v-model="drawer" app floating class="elevation-1" :right="$vuetify.rtl" width="260"
       style="background: #004991">
       <template v-slot:prepend>
@@ -21,14 +28,10 @@
               <v-list-item-content>
                 <v-list-item-title v-text="item.title" style="font-size: 15px; color: white"></v-list-item-title>
               </v-list-item-content>
-
-              <!-- <v-icon slot="append-icon" style="color: white">
-                mdi-chevron-down
-              </v-icon> -->
             </template>
 
             <template v-for="child in item.items">
-              <v-list-item :key="child.title" :to="child.to" style="padding-left: 45px; color: white"
+              <v-list-item :key="child.title" :to="child.to" router exact style="padding-left: 45px; color: white"
                 :class="{ 'active-child': child.to === $route.path }">
                 <v-tooltip right>
                   <template v-slot:activator="{ on, attrs }">
@@ -47,6 +50,12 @@
         </template>
       </v-list>
     </v-navigation-drawer>
+
+    <v-main>
+      <v-container fluid>
+        <nuxt />
+      </v-container>
+    </v-main>
   </v-app>
 </template>
 
@@ -59,6 +68,7 @@ export default {
       items: this.$menu,
     };
   },
+
 };
 </script>
 

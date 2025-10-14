@@ -16,11 +16,10 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
-  // ❌ Elimina la importación duplicada aquí
   css: [],
 
   plugins: [
-    '~/plugins/alert.js',
+    { src: '~/plugins/alert.js', mode: 'client' },
     '~/plugins/menu.js'
   ],
 
