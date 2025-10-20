@@ -41,61 +41,48 @@
       <b>Configuración De La Empresa</b>
     </v-alert>
 
-    <v-card class="pa-4 mt-4" max-width="1300" outlined>
-      <v-form ref="formEmpresa" v-model="formValido">
+    <!-- MODALES -->
+    <template v-if="empresa.modalMiEmpresa">
+      <MiEmpresa :solicitudSeleccionada="solicitudSeleccionada" />
+    </template>
 
-        <v-row>
-          <v-col cols="12" md="12">
-            <v-text-field v-model="empresa.razon_social" label="Razón Social" prepend-inner-icon="mdi-domain" dense
-              outlined required />
-          </v-col>
-
-          <v-col cols="12" md="12">
-            <v-text-field v-model="empresa.email" label="Email" prepend-inner-icon="mdi-map-marker" dense outlined
-              required />
-          </v-col>
-
-          <v-col cols="12" md="12">
-            <v-text-field v-model="empresa.direccion" label="Dirección" prepend-inner-icon="mdi-map-marker" dense
-              outlined required />
-          </v-col>
-
-          <v-col cols="12" md="6">
-            <v-text-field v-model="empresa.nit" label="NIT" prepend-inner-icon="mdi-file-document" dense outlined required />
-          </v-col>
-
-          <v-col cols="12" md="6">
-            <v-text-field v-model="empresa.telefono" label="Teléfono" prepend-inner-icon="mdi-phone" dense outlined
-              required />
-          </v-col>
-
-        </v-row>
-
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="primary" dark @click="guardarEmpresa">Guardar</v-btn>
-        </v-card-actions>
-
-      </v-form>
-    </v-card>
+    <template v-else-if="empresa.modalCrear">
+      <GestionCrear :solicitudSeleccionada="solicitudSeleccionada" />
+    </template>
   </div>
 </template>
 
 <script>
+import GestionCrear from '../../components/configuracion/GestionCrear.vue';
+import MiEmpresa from '../../components/configuracion/MiEmpresa.vue';
+
 export default {
+  components: { MiEmpresa, GestionCrear },
   name: "general",
 
   data() {
     return {
       formValido: false,
       empresa: {
-        razon_social: "",
-        email: "",
-        direccion: "",
-        nit: "",
-        telefono: "",
+        razon_social: null,
+        email: null,
+        direccion: null,
+        nit: null,
+        telefono: null,
+        logo: null,
+        modalCrear: false,
+        modalMiEmpresa: false,
       }
     }
+  },
+
+  methods: {
+
+    // abrirModal(){
+    //   if () {
+
+    //   }
+    // }
   }
 }
 </script>
