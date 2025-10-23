@@ -8,7 +8,7 @@
     </v-card-title>
 
     <v-card-text>
-      <v-form ref="formEmpresa" v-model="formValido">
+      <v-form ref="formEmpresa">
         <v-row dense>
           <!-- Razón Social -->
           <v-col cols="12" sm="6" md="6">

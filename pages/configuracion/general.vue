@@ -50,6 +50,7 @@ export default {
     return {
       modalMiEmpresa: false,
       modalCrear: true,
+      solicitudSeleccionada: {}
     }
   },
 
