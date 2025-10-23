@@ -1,9 +1,32 @@
 <template>
   <v-card>
+
     <v-card-text>
-      <header-pages :icon="'mdi-cog'" :titulo="'General'" :subtitulo="'Configuración del sistema.'" />
 
+      <!-- <v-card flat tile>
+        <v-card-text class="mt-2">
+          <v-row align="center">
+            <v-col cols="12 " sm="8" class="d-flex align-center">
+              <v-icon color="blue" class="mr-2">mdi-cog</v-icon>
+              <div>
+                <h3 class="blue--text text--darken-2 font-weight-bold mb-1">
+                  General
+                </h3>
+                <div class="grey--text text--darken-2">
+                  Configuración del sistema
+                </div>
+              </div>
+            </v-col>
 
+            <v-col cols="12" sm="4" class="d-flex justify-end pr-2">
+              <img src="/images/logoNegro.png" alt="Logo" height="70" class="mr-2" />
+            </v-col>
+          </v-row>
+        </v-card-text>
+      </v-card> -->
+
+      <header-pages :icon="'mdi-cog'" :titulo="'General'"
+        :subtitulo="'Configuración del sistema.'" />
 
       <v-alert color="warning" dark icon="mdi-information" border="left" prominent>
         <p>Apreciado(a) Administrador(a),</p>
@@ -24,69 +47,45 @@
         <b>Configuración De La Empresa</b>
       </v-alert>
 
-      <v-card class="pa-4 mt-4" max-width="1300" outlined>
-        <v-form ref="formEmpresa" v-model="formValido">
+      <template v-if="empresa.modalMiEmpresa">
+        <MiEmpresa :solicitudSeleccionada="solicitudSeleccionada" />
+      </template>
 
-          <v-row>
-            <v-col cols="12" md="12">
-              <v-text-field v-model="empresa.razon_social" label="Razón Social" prepend-inner-icon="mdi-domain" dense
-                outlined required />
-            </v-col>
-
-            <v-col cols="12" md="12">
-              <v-text-field v-model="empresa.email" label="Email" prepend-inner-icon="mdi-map-marker" dense outlined
-                required />
-            </v-col>
-
-            <v-col cols="12" md="12">
-              <v-text-field v-model="empresa.direccion" label="Dirección" prepend-inner-icon="mdi-map-marker" dense
-                outlined required />
-            </v-col>
-
-            <v-col cols="12" md="6">
-              <v-text-field v-model="empresa.nit" label="NIT" prepend-inner-icon="mdi-file-document" dense outlined
-                required />
-            </v-col>
-
-            <v-col cols="12" md="6">
-              <v-text-field v-model="empresa.telefono" label="Teléfono" prepend-inner-icon="mdi-phone" dense outlined
-                required />
-            </v-col>
-
-          </v-row>
-
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="primary" dark @click="guardarEmpresa()">Guardar</v-btn>
-          </v-card-actions>
-
-        </v-form>
-      </v-card>
+      <template v-else-if="empresa.modalCrear">
+        <GestionCrear :solicitudSeleccionada="solicitudSeleccionada" />
+      </template>
 
     </v-card-text>
   </v-card>
 </template>
 
 <script>
+import GestionCrear from '../../components/configuracion/GestionCrear.vue';
+import MiEmpresa from '../../components/configuracion/MiEmpresa.vue';
 import HeaderPages from '../../components/header/headerPages.vue';
-export default {
-  name: "general",
 
-  components: {
-    HeaderPages
-  },
+export default {
+  components: { MiEmpresa, GestionCrear, HeaderPages },
+  name: "general",
 
   data() {
     return {
       formValido: false,
       empresa: {
-        razon_social: "",
-        email: "",
-        direccion: "",
-        nit: "",
-        telefono: "",
+        razon_social: null,
+        email: null,
+        direccion: null,
+        nit: null,
+        telefono: null,
+        logo: null,
+        modalCrear: true,
+        modalMiEmpresa: false,
       }
     }
+  },
+  
+  mounted(){
+
   },
 
   methods: {
