@@ -48,7 +48,7 @@
         </v-row>
 
         <v-row justify="end" class="mt-4">
-          <v-btn color="primary" dark rounded @click="guardarEmpresa">Guardar</v-btn>
+          <v-btn color="primary" dark rounded @click="guardarEmpresa()">Guardar</v-btn>
         </v-row>
       </v-form>
     </v-card-text>
@@ -60,6 +60,25 @@ export default {
   props: {
     solicitudSeleccionada: {
       type: Object,
+    }
+  },
+
+  data() {
+    return {
+      empresa: {
+        razon_social: null,
+        email: null,
+        direccion: null,
+        nit: null,
+        telefono: null,
+        logo: null,
+      }
+    }
+  },
+
+  methods: {
+    guardarEmpresa() {
+
     }
   }
 }

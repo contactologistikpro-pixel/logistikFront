@@ -3,30 +3,8 @@
 
     <v-card-text>
 
-      <!-- <v-card flat tile>
-        <v-card-text class="mt-2">
-          <v-row align="center">
-            <v-col cols="12 " sm="8" class="d-flex align-center">
-              <v-icon color="blue" class="mr-2">mdi-cog</v-icon>
-              <div>
-                <h3 class="blue--text text--darken-2 font-weight-bold mb-1">
-                  General
-                </h3>
-                <div class="grey--text text--darken-2">
-                  Configuración del sistema
-                </div>
-              </div>
-            </v-col>
 
-            <v-col cols="12" sm="4" class="d-flex justify-end pr-2">
-              <img src="/images/logoNegro.png" alt="Logo" height="70" class="mr-2" />
-            </v-col>
-          </v-row>
-        </v-card-text>
-      </v-card> -->
-
-      <header-pages :icon="'mdi-cog'" :titulo="'General'"
-        :subtitulo="'Configuración del sistema.'" />
+      <header-pages :icon="'mdi-cog'" :titulo="'General'" :subtitulo="'Configuración del sistema.'" />
 
       <v-alert color="warning" dark icon="mdi-information" border="left" prominent>
         <p>Apreciado(a) Administrador(a),</p>
@@ -47,11 +25,11 @@
         <b>Configuración De La Empresa</b>
       </v-alert>
 
-      <template v-if="empresa.modalMiEmpresa">
+      <template v-if="modalMiEmpresa">
         <MiEmpresa :solicitudSeleccionada="solicitudSeleccionada" />
       </template>
 
-      <template v-else-if="empresa.modalCrear">
+      <template v-else-if="modalCrear">
         <GestionCrear :solicitudSeleccionada="solicitudSeleccionada" />
       </template>
 
@@ -70,21 +48,12 @@ export default {
 
   data() {
     return {
-      formValido: false,
-      empresa: {
-        razon_social: null,
-        email: null,
-        direccion: null,
-        nit: null,
-        telefono: null,
-        logo: null,
-        modalCrear: true,
-        modalMiEmpresa: false,
-      }
+      modalMiEmpresa: false,
+      modalCrear: true,
     }
   },
-  
-  mounted(){
+
+  mounted() {
 
   },
 
