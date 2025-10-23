@@ -22,7 +22,7 @@
       </v-card-text>
     </v-card>
 
-    <v-alert color="warning" dark icon="mdi-information" border="left" prominent outline>
+    <v-alert color="warning" dark icon="mdi-information" border="left" prominent>
       <p>Apreciado(a) Administrador(a),</p>
       <p>
         En este módulo podrá gestionar la información administrativa de su empresa
@@ -61,7 +61,8 @@
           </v-col>
 
           <v-col cols="12" md="6">
-            <v-text-field v-model="empresa.nit" label="NIT" prepend-inner-icon="mdi-file-document" dense outlined required />
+            <v-text-field v-model="empresa.nit" label="NIT" prepend-inner-icon="mdi-file-document" dense outlined
+              required />
           </v-col>
 
           <v-col cols="12" md="6">
@@ -73,7 +74,7 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" dark @click="guardarEmpresa">Guardar</v-btn>
+          <v-btn color="primary" dark @click="guardarEmpresa()">Guardar</v-btn>
         </v-card-actions>
 
       </v-form>
@@ -95,6 +96,12 @@ export default {
         nit: "",
         telefono: "",
       }
+    }
+  },
+
+  methods: {
+    guardarEmpresa() {
+
     }
   }
 }
