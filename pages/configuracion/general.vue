@@ -22,7 +22,7 @@
       </v-card-text>
     </v-card>
 
-    <v-alert color="warning" dark icon="mdi-information" border="left" prominent outline>
+    <v-alert color="warning" dark icon="mdi-information" border="left" prominent>
       <p>Apreciado(a) Administrador(a),</p>
       <p>
         En este módulo podrá gestionar la información administrativa de su empresa
@@ -77,12 +77,9 @@ export default {
   },
 
   methods: {
+    guardarEmpresa() {
 
-    // abrirModal(){
-    //   if () {
-
-    //   }
-    // }
+    }
   }
 }
 </script>

@@ -20,8 +20,7 @@ const routes = [
     title: "Clientes",
     action: "mdi-account-multiple",
     items: [
-      { title: "Lista de Clientes", to: "/clientes/lista" },
-      { title: "Nuevo Cliente", to: "/clientes/nuevo" }
+      { title: "Lista de Clientes", to: "/clientes/principal" },
     ]
   },
   {
