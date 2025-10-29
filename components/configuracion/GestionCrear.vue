@@ -92,7 +92,7 @@
           <!-- Sección Imagen -->
           <v-col cols="12" class="mt-4">
             <h4 class="text-h5 font-weight-bold blue--text text--darken-2">
-              <v-icon left class="text-h5 font-weight-bold blue--text text--darken-2">mdi-image-check</v-icon> Logo Corporativa
+              <v-icon left class="text-h5 font-weight-bold blue--text text--darken-2">mdi-image-check</v-icon> Logo Corporativo
             </h4>
           </v-col>
           <v-spacer></v-spacer>
